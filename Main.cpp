@@ -20,7 +20,7 @@ int main() {
 	
 	shop.addProtoItem(Item("Sword", 100), 1);
 
-	
+	//poop
 
 	/*Item* shop[2][2] = {
 		{ //	Offensive
@@ -115,4 +115,3 @@ int main() {
 	system("pause");
 	return 0;
 };
-
