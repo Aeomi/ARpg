@@ -2,8 +2,9 @@
 
 Item::Item() {}
 
-Item::Item(std::string name, int uses) {
-	this->name = name;
+Item::Item(std::string name, bool stackable, int uses) {
+	this->name = name;uses
+	this->stackable = stackable;
 	this->effects = new Effects(uses);
 
 }
@@ -11,3 +12,4 @@ Item::Item(std::string name, int uses) {
 bool Item::isConsumable() {
 	return this->effects->consumable;
 }
+
