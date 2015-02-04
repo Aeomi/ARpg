@@ -9,15 +9,15 @@ class Item {
 
 	public:
 	std::string name;
-	std::string itemClass;
+	//std::string itemClass;
 	int itemID;
-	float baseValue;
+	//float baseWorth;
 	Effects* effects;
 	bool stackable;
 	int quantity;
 
 	Item();
-	Item(std::string name, int uses);
+	Item(std::string name, bool stackable, int uses);
 
 	bool isConsumable();
 
