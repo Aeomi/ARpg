@@ -10,17 +10,20 @@ class Item {
 	public:
 	std::string name;
 	//std::string itemClass;
-	int itemID;
+	int itemId;
 	//float baseWorth;
 	Effects* effects;
 	bool stackable;
 	int quantity;
 
 	Item();
-	Item(std::string name, bool stackable, int uses);
+	Item(int itemId, std::string name, int quantity, int uses);
+	Item(int itemId, std::string name, int quantity, int uses, bool stackable);
 
 	bool isConsumable();
-
+	
+	Item* clone();
+	
 };
 
 #endif
