@@ -1,0 +1,127 @@
+
+
+[Main.cpp]
+	[Class:Inventory]:
+		-\	Change contents from array** to vector with vector.reserve() set
+
+	[Class:Damage]:
+		-\	damage.send(target)
+			The damage was a tad bit more complex, also the target handled the damage object
+			in this case neither of those is true
+			you're just subtracting a number from a number.
+			target->hurt(damage); makes sense
+			target->hp -= damage.getAmount(); not so much
+			
+			void hurt(const Damage& owwie) {
+				// Super complex math calculation and shit.
+				this->hp -= sexy stuff;
+			}
+
+	[General:Enum]:
+		-/ Actor:
+				0: Level
+				1: Health
+				2: Strength
+				3: Defence
+			Item:
+				0: [0+]  Level
+				1: [0+]  Health
+				2: [0+]  Strength
+				3: [0+]  Defence
+				4: [0/1] Consumable
+				5: [0+]  Uses
+			
+
+	[Class:Item]:
+		-/	Items should have property "effect"
+			If possible, effect should be an array such as the following example:
+				Enumeration:
+				0: Level
+				1: Health
+				2: Strength
+				3: Defence
+				4: Experience
+
+				healthPotion.effect		= {0,50,0,0}
+				ironSword.effect		= {0,0,48,0}
+				khana_chestPlate.effect = {0,0,0,189}
+				rare_candy.effect		= {1,0,0,0,0}
+
+			Because of the simplicity, these items could be implemented as text(JSON) files in a resource folder
+
+		-/	Items with "enchantment" property, and RUNES:
+				0: Level
+				1: Health
+				2: Strength
+				3: Defence
+
+				strength_4 = {0,0,40,0}
+
+				Overall damage should be calculated with the combination of both "effects" and "enchantment," for example:
+					Actor Ayu;
+
+					Ayu.baseStats = {1,100,10,10}
+					Ayu.stats = {};
+
+					for (int i=0; i<4; i++){
+						Ayu.stats[i] += Ayu.baseStats[i];
+						Ayu.stats[i] += Ayu.equipment[i];
+					}
+
+		[Namespace:Game]:
+			-/	Game::General::printData( object ) should be implemented. Example:
+					Actor ayu = Actor("Ayu", 1, 100, 10, 5, Inventory(8))
+					Item sword = Item("Sword", {0,0,25,0})
+
+					printData(ayu)
+
+						Name: Ayu
+							Level:		1
+							Health:		100
+							Strength:	10
+							Defence:	5
+
+					printData(sword)
+
+						Name: Sword
+							Health:		0
+							Strength:	25
+							Defence:	0
+							Consumable: 0
+							Uses:		100 ! Make vary (25)
+
+					Better to have:
+						Actors:
+							printStats
+							printInventory
+							printEquipment
+						Items:
+							printEffects
+
+
+			[General:Storage]:
+				-/	
+
+					[Equipment] PLAYER [Inventory]
+						 ^					^
+						 4				   n^2
+
+			[Class:Actor]:
+				-/	Health is no longer a stat; instead a consequence of stats:
+					To be calculated from (i.e.)
+
+						Level, 
+						Vitality (Additional Stat)
+
+			[Class:Item]:
+				-/	Create "effects" class
+					Item constructer must set effect's values:
+
+					[Class:Item]:
+						Effect effect;
+					Example:
+						item->effect.defence(10);
+
+			[Class:Money]:
+				-/	Introduce Monies!
+					Also make Shop::sellItem() return an int
