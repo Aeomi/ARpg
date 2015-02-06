@@ -1,6 +1,7 @@
 #ifndef __A_SHOP
 #define __A_SHOP
 
+#include <iostream>
 #include <vector>
 #include "Item.h"
 
