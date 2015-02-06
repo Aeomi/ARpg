@@ -27,4 +27,3 @@ Item* Item::clone(){
 	return new Item(this->itemId, this->name,
 		this->quantity, this->effects->uses,this->stackable);
 }
-
