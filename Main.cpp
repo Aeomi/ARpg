@@ -14,13 +14,11 @@ int main() {
 	Shop shop = Shop();
 
 	// Make items add to shop like this until you make a ResourceLoader class that loads items from files
-	Item herpesCannon = Item("Herpes Cannon", 100);
-	herpesCannon.effects->strength(69);
-	shop.addProtoItem(herpesCannon, 1);
+	//Item herpesCannon = Item(1, "Herpes Cannon", 1, 100);
+	//herpesCannon.effects->strength(69);
+	//shop.addProtoItem(herpesCannon, 1);
 	
-	shop.addProtoItem(Item("Sword", 100), 1);
-
-	//poop
+	//hop.addProtoItem(Item("Sword", 100), 1);
 
 	/*Item* shop[2][2] = {
 		{ //	Offensive
@@ -32,16 +30,16 @@ int main() {
 			new Item("Dragonsteel Izai Armor", 400)
 		}
 	};*/
-	
+	/*
 	shop[0][0]->effects->strength(666);
 	shop[0][1]->effects->strength(25);
 	shop[1][0]->effects->defence(40);
-	shop[1][1]->effects->defence(512);
+	shop[1][1]->effects->defence(512);*/
 
 	Inventory* bag = new Inventory(8);
 
 	Actor* Ayu = new Actor("Ayu");
-	Ayu->setLevel(1);	  Ayu->setExp(0);	  Ayu->setHealth(100); 
+	Ayu->setLevel(1);	 Ayu->setExp(0);	  Ayu->setHealth(100); 
 	Ayu->setStrength(10); Ayu->setDefence(5); //Ayu->setInventory(bag);
 	
 
@@ -57,7 +55,7 @@ int main() {
 
 		// Commands
 		if (in == "quit") break;
-
+/*
 		if (in == "stats") Game::Print::info(Ayu);
 
 		if (in == "attack") Game::Combat::attack(Ayu, Ayu);
@@ -76,11 +74,11 @@ int main() {
 			}
 		}
 
-		if (in == "buy"){
+		/*if (in == "buy"){
 			for (int type = 0; type < 2; type++)
 				for (int itm = 0; itm < 2; itm++){
 					cout << "[" << type << "]" << "[" << itm << "] ";
-					cout << shop[type][itm]->name << endl;
+					//out << shop[type][itm]->name << endl;
 				}
 
 			cout << "\nEnter item to buy (offence or defence) [0/1]: ";
@@ -103,7 +101,7 @@ int main() {
 			didBuy = Ayu->inventory->insertIntoNext(newItem);
 			cout << newItem->name << " was bought" << endl;
 		
-		}
+		}*/
 
 
 
@@ -112,6 +110,6 @@ int main() {
 
 
 	cout << "\n\nARpg Terminated" << endl;
-	system("pause");
+	//system("pause");
 	return 0;
 };
