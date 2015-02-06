@@ -15,26 +15,40 @@ bool Shop::isProductSlotTaken(int slot) {
 }
 
 void Shop::addProduct(Item* item) {
-
+	
 	for (int i = 0; i < this->SHOP__MAX_PRODUCTS; i++){
 		Item* currentItem = this->shopProducts[i];
-
-		if (this->isProductSlotTaken(i)){
-			if (item->stackable && (item->itemID == currentItem->itemID)){
-				item->quantity += nItem->quantity;
+		
+		// Check if item is already in shop; stack if possible
+		if (this->isProductSlotTaken(i))
+			if (item->stackable && (item->itemId == currentItem->itemId)){
+				currentItem->quantity += item->quantity;
 				return;
-				//this.stackItems(); // Go through items and stack stackables ^ makes redund
 			}
-		} else this->shopProducts[i] = newItemProto;
 	}
-
+	
+	for (int i = 0; i < this->SHOP__MAX_PRODUCTS; i++)
+		if (!this->isProductSlotTaken(i)){
+			this->shopProducts[i] = item;
 }
 
-Item* Shop::buyItem(int slot) { //clone + return item like lua
-	Item* itemProto = this->shopProducts[slot];
-	Item* newItem = new Item(itemProto->name, itemProto->effects->uses);
-	newItem->effects = itemProto->effects; // Don't know if this will work, might be redund
-	return newItem;
+Item* Shop::buyItem(int slot, int amount) {
+	Item* item = this->shopProducts[slot];
+	
+	if (item->stackable && item->quantity > amount){
+		item->quantity -= amount;
+		this->removeProductSlot(slot);
+		
+		Item* newItem = item->clone();
+		newItem->quantity = amount;
+		
+		
+		
+		return newItem;
+	} else {
+		Item* newItem = item->clone();
+		
+		
 }
 
 //int to become money object
