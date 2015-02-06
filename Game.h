@@ -21,7 +21,6 @@ namespace Game {
 	namespace IO {
 
 		bool getConfirm();
-
 		void wait();
 
 	}
