@@ -15,10 +15,8 @@ bool Shop::isProductSlotTaken(int slot) {
 }
 
 void Shop::addProduct(Item* item) {
-	
 	for (int i = 0; i < this->SHOP__MAX_PRODUCTS; i++){
 		Item* currentItem = this->shopProducts[i];
-		
 		// Check if item is already in shop; stack if possible
 		if (this->isProductSlotTaken(i))
 			if (item->stackable && (item->itemId == currentItem->itemId)){
@@ -26,32 +24,32 @@ void Shop::addProduct(Item* item) {
 				return;
 			}
 	}
-	
+
 	for (int i = 0; i < this->SHOP__MAX_PRODUCTS; i++)
-		if (!this->isProductSlotTaken(i)){
+		if (!this->isProductSlotTaken(i))
 			this->shopProducts[i] = item;
 }
 
-Item* Shop::buyItem(int slot, int amount) {
-	Item* item = this->shopProducts[slot];
+Item* Shop::buyItem(int productSlot, int amount) {
+	Item* item = this->shopProducts[productSlot];
 	
 	if (item->stackable && item->quantity > amount){
 		item->quantity -= amount;
-		this->removeProductSlot(slot);
+		//this->removeProductSlot(productSlot);
 		
 		Item* newItem = item->clone();
 		newItem->quantity = amount;
 		
-		
-		
 		return newItem;
 	} else {
 		Item* newItem = item->clone();
-		
-		
+	}
 }
 
 //int to become money object
-int Shop::sellItem(Item item, int amount) {
+int Shop::sellItem(Item* item) {
+	// add x of that item to shop products
+}
+int Shop::sellItem(Item* item, int amount) {
 	// add x of that item to shop products
 }

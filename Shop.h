@@ -23,7 +23,8 @@ class Shop {
 
 	// Change int to currency object
 	// Ask user if they want to sell more than 1
-	int sellItem(Item*);
+	int sellItem(Item* item);
+	int sellItem(Item* item, int amount);
 
 	void stackStackables();
 };

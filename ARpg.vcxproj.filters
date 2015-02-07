@@ -45,9 +45,6 @@
     <ClCompile Include="Shop.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="ItemProto.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Item.h">
@@ -75,9 +72,6 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Shop.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="ItemProto.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
