@@ -25,7 +25,7 @@ class Shop {
 	// Change int to currency object
 	// Ask user if they want to sell more than 1
 	int sellItem(Item*);
-
+//Update:SGit
 	void stackStackables();
 };
 
