@@ -30,6 +30,8 @@ void Shop::addProduct(Item* item) {
 			this->shopProducts[i] = item;
 }
 
+
+
 Item* Shop::buyItem(int productSlot, int amount) {
 	Item* item = this->shopProducts[productSlot];
 	
@@ -41,9 +43,11 @@ Item* Shop::buyItem(int productSlot, int amount) {
 		newItem->quantity = amount;
 		
 		return newItem;
-	} else {
-		Item* newItem = item->clone();
-	}
+	} else Item* newItem = item->clone();
+}
+
+Item* Shop::buyItem(int productSlot){
+	return Shop::buyItem(productSlot, 1);
 }
 
 //int to become money object

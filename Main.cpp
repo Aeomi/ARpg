@@ -8,7 +8,19 @@
 
 using namespace std;
 
+int main() {
+	
+	Shop merchant = Shop();
+	
+	
+	
+	cout << "\n\nARpg terminated" << endl;
+	return 0;
+}
 
+
+
+/*
 int main() {
 
 	Shop shop = Shop();
@@ -34,12 +46,12 @@ int main() {
 	shop[0][0]->effects->strength(666);
 	shop[0][1]->effects->strength(25);
 	shop[1][0]->effects->defence(40);
-	shop[1][1]->effects->defence(512);*/
+	shop[1][1]->effects->defence(512);
 
 	Inventory* bag = new Inventory(8);
 
 	Actor* Ayu = new Actor("Ayu");
-	Ayu->setLevel(1);	 Ayu->setExp(0);	  Ayu->setHealth(100); 
+	Ayu->setLevel(1);	 Ayu->setExp(0);	 Ayu->setHealth(100); 
 	Ayu->setStrength(10); Ayu->setDefence(5); //Ayu->setInventory(bag);
 	
 
@@ -101,7 +113,7 @@ int main() {
 			didBuy = Ayu->inventory->insertIntoNext(newItem);
 			cout << newItem->name << " was bought" << endl;
 		
-		}*/
+		}
 
 
 
@@ -112,4 +124,5 @@ int main() {
 	cout << "\n\nARpg Terminated" << endl;
 	//system("pause");
 	return 0;
-};
+};*/
+
