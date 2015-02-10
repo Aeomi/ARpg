@@ -10,8 +10,10 @@ using namespace std;
 
 int main() {
 	
-	Shop merchant = Shop();
+	//Actor pl = Actor("ayu");
 	
+	string str = std::to_string(10);
+	cout << str << endl;
 	
 	
 	cout << "\n\nARpg terminated" << endl;
@@ -125,4 +127,3 @@ int main() {
 	//system("pause");
 	return 0;
 };*/
-
