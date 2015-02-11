@@ -6,6 +6,7 @@
 #include "Inventory.h"
 #include "Damage.h"
 #include "Math.h"
+#include "Convert.h"
 
 class Actor {
 

@@ -3,6 +3,7 @@
 
 #include <vector>
 #include "Item.h"
+#include "Convert.h"
 
 class Inventory {
 

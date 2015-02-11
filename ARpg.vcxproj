@@ -79,6 +79,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Actor.cpp" />
+    <ClCompile Include="Convert.cpp" />
     <ClCompile Include="Damage.cpp" />
     <ClCompile Include="Effects.cpp" />
     <ClCompile Include="Game.cpp" />
@@ -91,6 +92,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Actor.h" />
+    <ClInclude Include="Convert.h" />
     <ClInclude Include="Damage.h" />
     <ClInclude Include="Effects.h" />
     <ClInclude Include="Game.h" />

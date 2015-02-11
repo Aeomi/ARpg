@@ -11,13 +11,14 @@ using namespace std;
 
 int main() {
 	
-	//Actor pl = Actor("ayu");
+	Actor* Ayu = new Actor("AYU");
+	Ayu->setLevel(1);	 Ayu->setExp(0);	 Ayu->setHealth(100);
+	Ayu->setStrength(10); Ayu->setDefence(5); //Ayu->setInventory(bag);
 	
-	string str = ALib::Convert::toString(10);
-	cout << str + "yz" << endl;
-	
+	cout << Ayu->toString() << endl;
 	
 	cout << "\n\nARpg terminated" << endl;
+	system("pause");
 	return 0;
 }
 
