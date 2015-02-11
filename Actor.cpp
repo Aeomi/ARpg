@@ -116,13 +116,12 @@ bool Actor::isAlive() {
 }
 
 string Actor::toString() {
-	return "Name: " + this->name + "\n\t"
-		+ "Type:\t\t" + this->type + "\n\t"
-		+ "Level:\t\t" + to_string(this->getLevel()) + "\n\t"
-		+ "Exp:\t\t" + to_string(this->getExp()) + "\n\t"
-		+ "Health:\t\t" + to_string(this->getHealth()) + "\n\t"
-		+ "Strength:\t" + to_string(this->getStrength()) + "\n\t"
-		+ "Defence:\t" + to_string(this->getDefence()) + "\n";
+	return "Name: "	 + this->name + "\n\t"
+		+ "Type:\t\t"   + this->type + "\n\t"
+		+ "Level:\t\t"  + ALib::Convert::toString(this->getLevel()) + "\n\t"
+		+ "Exp:\t\t"	+ ALib::Convert::toString(this->getExp()) + "\n\t"
+		+ "Health:\t\t" + ALib::Convert::toString(this->getHealth()) + "\n\t"
+		+ "Strength:\t" + ALib::Convert::toString(this->getStrength()) + "\n\t"
+		+ "Defence:\t"  + ALib::Convert::toString(this->getDefence()) + "\n";
 }
-
 

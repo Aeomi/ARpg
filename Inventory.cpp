@@ -22,7 +22,7 @@ Item* Inventory::get(int slot){ return this->contents[slot]; }
 std::string Inventory::toString() {
 	std::string result = "";
 	for (int i = 0; i<this->capacity; i++) {
-		result += "Slot " + std::to_string(i) + ": ";
+		result += "Slot " + ALib::Convert::toString(i) + ": ";
 		if (this->isSlotTaken(i)) result += this->get(i)->name + "\n";
 		else result += "(Empty)\n";
 	}
@@ -48,5 +48,4 @@ Item* Inventory::remove(int slot) {
 	this->contents[slot] = nullptr;
 	return oldItem;
 }
-
 

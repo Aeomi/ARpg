@@ -5,6 +5,7 @@
 #include "Item.h"
 #include <string>
 #include "Game.h"
+#include "Convert.h"
 
 using namespace std;
 
@@ -12,8 +13,8 @@ int main() {
 	
 	//Actor pl = Actor("ayu");
 	
-	string str = std::to_string(10);
-	cout << str << endl;
+	string str = ALib::Convert::toString(10);
+	cout << str + "yz" << endl;
 	
 	
 	cout << "\n\nARpg terminated" << endl;
