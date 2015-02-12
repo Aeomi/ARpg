@@ -38,7 +38,7 @@ double Actor::hurt(Damage dmg) {
 	damage += dmg.getPreciseAmount();
 	damage -= dt + dr;
 
-	damage = ALib::Math::clamp(round(damage), 0, this->getHealth());
+	damage = ALib::Math::clamp((int)(damage), 0, this->getHealth());
 	this->setHealth(this->getHealth() - damage);
 	//if (this->getHealth() <= 0) this->alive = false; Ask this outside of class!
 	return damage;
@@ -124,4 +124,3 @@ string Actor::toString() {
 		+ "Strength:\t" + ALib::Convert::toString(this->getStrength()) + "\n\t"
 		+ "Defence:\t"  + ALib::Convert::toString(this->getDefence()) + "\n";
 }
-

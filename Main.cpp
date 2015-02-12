@@ -17,8 +17,9 @@ int main() {
 	
 	cout << Ayu->toString() << endl;
 	
+	
 	cout << "\n\nARpg terminated" << endl;
-	system("pause");
+	//system("pause");
 	return 0;
 }
 

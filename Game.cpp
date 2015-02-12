@@ -67,7 +67,7 @@ namespace Game {
 				if (item->effects->stats[i] != nullstat)
 					result += "\t" + EFFECT_NAMES[i] + ": " + ALib::Convert::toString(item->effects->stats[i]) + "\n";
 
-			result += "\tUses: " + std::to_string(item->effects->uses) + "\n\tConsumable: ";
+			result += "\tUses: " + ALib::Convert::toString(item->effects->uses) + "\n\tConsumable: ";
 			if (item->isConsumable()) result += "true\n"; else result += "false\n";
 			std::cout << result << std::endl;
 		}

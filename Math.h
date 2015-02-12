@@ -3,11 +3,15 @@
 
 #include <iostream>
 #include <time.h>
+#include <cstdlib>
 
 
 namespace ALib {
 
 	namespace Math {
+
+		int min(int num1, int num2);
+		int max(int num1, int num2);
 
 		int rand(int min, int max);
 

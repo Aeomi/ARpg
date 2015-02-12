@@ -6,6 +6,7 @@
 #include "Actor.h"
 #include "item.h"
 #include "Inventory.h"
+#include "Convert.h"
 
 
 namespace Game {

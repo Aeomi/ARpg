@@ -3,7 +3,8 @@
 
 Effects::Effects(int uses) {
 	for (int i = 0; i < 5; i++) this->stats[i] = 0;
-	if (uses > 1) this->uses = uses + round(ALib::Math::rand(-uses / 4, uses / 4));
+	// Randomiser;fix
+	if (uses > 1) this->uses = uses;// + round(ALib::Math::rand(-uses / 4, uses / 4));
 	else this->consumable = true;
 
 
@@ -28,6 +29,4 @@ void Effects::strength(int val) {
 void Effects::defence(int val) {
 	this->stats[DEFENCE] = val;
 }
-
-
 
