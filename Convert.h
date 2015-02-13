@@ -6,15 +6,9 @@
 #include <sstream>
 
 namespace ALib {
-	
 	namespace Convert {
-		
-		std::string toString(int value);
-		
-		
+		std::string toString(template<class T> value);
 	}
 }
-
-
 
 #endif
