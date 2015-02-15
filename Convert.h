@@ -7,7 +7,8 @@
 
 namespace ALib {
 	namespace Convert {
-		std::string toString(template<class T> value);
+
+		std::string toString(int value);
 	}
 }
 

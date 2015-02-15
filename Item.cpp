@@ -24,6 +24,11 @@ bool Item::isConsumable() {
 
 //depreciated; loadItem(itemId)
 Item* Item::clone(){
-	return new Item(this->itemId, this->name,
-		this->quantity, this->effects->uses,this->stackable);
+	return new Item(
+		this->itemId, 
+		this->name,
+		this->quantity, 
+		this->effects->uses, 
+		this->stackable
+	);
 }
