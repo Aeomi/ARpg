@@ -24,10 +24,10 @@ int main() {
 		merchant.addProduct(item);
 
 	//----------------//
-	int desiredAmountOfPotions = 1;
+	int desiredAmountOfPotions = 8;
 
 	if (merchant.getProduct(1)->quantity > desiredAmountOfPotions)
-		merchant.buyItem(1, desiredAmountOfPotions);
+		pl.inventory->insertIntoNext(merchant.buyItem(1, desiredAmountOfPotions));
 
 
 	Game::Print::inventory(merchant.inventory);
@@ -37,7 +37,7 @@ int main() {
 
 	//----------------//
 	cout << "\n\nARpg Terminated" << endl;
-	system("pause");
+	//system("pause");
 	return 0;
 }
 
