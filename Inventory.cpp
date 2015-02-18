@@ -27,18 +27,17 @@ std::string Inventory::toString() {
 	std::stringstream result;
 
 	for (int i = 0; i < this->capacity; i++) {
-		if ((i + 1) % 2 == 0) result << std::setw(20);
-		result << "Slot " << i << ":  ";
-		result << std::setw(15);
-
-
-		if (this->isSlotTaken(i)) result << this->get(i)->name << " x" << this->get(i)->quantity;
-		if (( i + 1) % 2 == 0) result << "\n";
-
-		//result.fill('x');
+		result << "Slot " << ((i < 10)?" ":"") << i << ": ";
+		result.width(20);
+		{
+			std::stringstream item;
+			if (this->isSlotTaken(i))
+				item << this->get(i)->name << " x" << this->get(i)->quantity;
+			result << std::left << item.str();
+		}
+		result << " ";
+		if ((i + 1) % 2 == 0) result << std::endl;
 	}
-
-	
 	return result.str();
 }
 
