@@ -1,4 +1,8 @@
 /Release
+*.vcxproj
+*.filters
+*.vcxproj.filters
+*.vcxproj.user
 *.c4droid
 
 # Compiled Object files
