@@ -60,4 +60,3 @@ Item* Inventory::remove(int slot) {
 	this->contents[slot] = nullptr;
 	return oldItem;
 }
-
