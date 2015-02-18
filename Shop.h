@@ -1,19 +1,19 @@
 #ifndef __A_SHOP
 #define __A_SHOP
 
-#include <vector>
+#include "Inventory.h"
 #include "Item.h"
 
 class Shop {
 
 	public:
-	std::vector<Item*> shopProducts;
-	const int SHOP__MAX_PRODUCTS = 64;
+	int const SHOP__MAX_PRODUCTS = 64;
+	Inventory* inventory = new Inventory(SHOP__MAX_PRODUCTS);
 	//double 
 
 	Shop();
 
-	Item* getProduct(int slot);
+	Item* getProduct(int slot); 
 	bool isProductSlotTaken(int slot);
 	void addProduct(Item* item);
 	Item* removeProduct(int slot);
@@ -28,8 +28,6 @@ class Shop {
 
 	void stackStackables();
 };
-
-
 
 
 #endif

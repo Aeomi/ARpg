@@ -11,30 +11,31 @@ using namespace std;
 
 int main() {
 
+	Actor pl = Actor("Ucchi");
+	Shop merchant = Shop();
+
 	// new Item(ID <- make a Item.newID() function, or ItemLoader.newID()
 	Item* products[] = {
-		new Item(1, "sword", 1, 100, false) ,
-		new Item(2, "potion", 4, 1, true)
+		new Item(1, "sword", false, 1, 100),
+		new Item(2, "potion", true, 8, 1, true)
 	};
 
-	Actor* pl = new Actor("Ucchi"); //Implement inv slot choice in constructor
-	Shop merchant = Shop();
-	
+	for (Item* item : products)
+		merchant.addProduct(item);
 
-	Item* mySword = new Item(1, "sword", 1, 100, false);
-	merchant.addProduct(mySword);
+	//----------------//
+	int desiredAmountOfPotions = 1;
 
-	for (int i = 0; i < merchant.SHOP__MAX_PRODUCTS; i++)
-		cout << sizeof(*merchant.shopProducts[i]) << endl;
-
-	
-
-	
-	//pl->inventory->insertIntoNext();
-	//Game::Print::inventory(pl->inventory);
+	if (merchant.getProduct(1)->quantity > desiredAmountOfPotions)
+		merchant.buyItem(1, desiredAmountOfPotions);
 
 
+	Game::Print::inventory(merchant.inventory);
 
+	Game::Print::inventory(pl.inventory);
+
+
+	//----------------//
 	cout << "\n\nARpg Terminated" << endl;
 	system("pause");
 	return 0;

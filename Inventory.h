@@ -2,6 +2,8 @@
 #define __A_INVENTORY
 
 #include <vector>
+#include <sstream>
+#include <iomanip>
 #include "Item.h"
 #include "Convert.h"
 
@@ -9,7 +11,7 @@ class Inventory {
 
 	public:
 	std::vector<Item*> contents;
-	static const int MAX_INVENTORY_SIZE = 32;
+	static const int MAX_INVENTORY_SIZE = 64;
 	static const int DEFAUT_INVENTORY_SIZE = 4;
 	int capacity;
 

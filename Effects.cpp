@@ -1,32 +1,34 @@
 #include "Effects.h"
 
 
-Effects::Effects(int uses) {
-	for (int i = 0; i < 5; i++) this->stats[i] = 0;
+Effects::Effects(int uses, bool consumable) {
+	for (int i = 0; i < 5; i++) this->stats[i] = NULL;
+
+	this->uses = uses;
+	this->consumable = consumable;
+
 	// Randomiser;fix
-	if (uses > 1) this->uses = uses;// + round(ALib::Math::rand(-uses / 4, uses / 4));
-	else this->consumable = true;
-
-
+	/*if (uses >= 1) this->uses = uses;	//round(ALib::Math::rand(-uses / 4, uses / 4));
+	else this->consumable = true;*/
 }
 
-void Effects::level(int val) {
-	this->stats[LEVEL] = val;
+void Effects::level(int value) {
+	this->stats[LEVEL] = value;
 }
 
-void Effects::exp(int val) {
-	this->stats[EXP] = val;
+void Effects::exp(int value) {
+	this->stats[EXP] = value;
 }
 
-void Effects::health(int val) {
-	this->stats[HEALTH] = val;
+void Effects::health(int value) {
+	this->stats[HEALTH] = value;
 }
 
-void Effects::strength(int val) {
-	this->stats[STRENGTH] = val;
+void Effects::strength(int value) {
+	this->stats[STRENGTH] = value;
 }
 
-void Effects::defence(int val) {
-	this->stats[DEFENCE] = val;
+void Effects::defence(int value) {
+	this->stats[DEFENCE] = value;
 }
 

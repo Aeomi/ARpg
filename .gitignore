@@ -1,3 +1,6 @@
+/Release
+*.c4droid
+
 # Compiled Object files
 *.slo
 *.lo

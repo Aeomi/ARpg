@@ -1,7 +1,7 @@
 #include "Inventory.h"
 
 
-//| Constructors
+// Constructors
 Inventory::Inventory() {
 	this->capacity = DEFAUT_INVENTORY_SIZE;
 	this->contents.reserve(DEFAUT_INVENTORY_SIZE);
@@ -14,23 +14,36 @@ Inventory::Inventory(int capacity) {
 	for (int i = 0; i < this->capacity; this->contents[i++] = nullptr);
 }
 
-//| Getters / Setters
-bool Inventory::isSlotTaken(int slot){ return this->contents[slot] != nullptr; }
+// Getters / Setters
+bool Inventory::isSlotTaken(int slot){
+	return (this->contents[slot] != nullptr); 
+}
 
-Item* Inventory::get(int slot){ return this->contents[slot]; }
+Item* Inventory::get(int slot){ 
+	return this->contents[slot]; 
+}
 
 std::string Inventory::toString() {
-	std::string result = "";
-	for (int i = 0; i<this->capacity; i++) {
-		result += "Slot " + ALib::Convert::toString(i) + ": ";
-		if (this->isSlotTaken(i)) result += this->get(i)->name + "\n";
-		else result += "(Empty)\n";
+	std::stringstream result;
+
+	for (int i = 0; i < this->capacity; i++) {
+		if ((i + 1) % 2 == 0) result << std::setw(20);
+		result << "Slot " << i << ":  ";
+		result << std::setw(15);
+
+
+		if (this->isSlotTaken(i)) result << this->get(i)->name << " x" << this->get(i)->quantity;
+		if (( i + 1) % 2 == 0) result << "\n";
+
+		//result.fill('x');
 	}
-	return result;
+
+	
+	return result.str();
 }
 
 
-//| Mutators
+// Mutators
 Item* Inventory::insert(int slot, Item* item) {
 	Item* oldItem = this->get(slot);
 	this->contents[slot] = item;

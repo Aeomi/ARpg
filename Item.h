@@ -17,8 +17,8 @@ class Item {
 	int quantity;
 
 	Item();
-	Item(int itemId, std::string name, int quantity, int uses);
-	Item(int itemId, std::string name, int quantity, int uses, bool stackable);
+	Item(int itemId, std::string name, bool consumable, int quantity, int uses);
+	Item(int itemId, std::string name, bool consumable, int quantity, int uses, bool stackable);
 
 	bool isConsumable();
 	

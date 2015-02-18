@@ -15,7 +15,7 @@ class Effects {
 	int uses;
 	bool consumable = false;
 
-	Effects(int uses);
+	Effects(int uses, bool consumable);
 
 	bool isConsumable();
 	void level(int val);
