@@ -44,12 +44,15 @@ Item* Shop::buyItem(int productSlot, int amount) {
 	Item* item = this->getProduct(productSlot);
 	
 	if (item->stackable){
-		if (item->quantity > amount){
+		if (item->quantity >= amount){
 			item->quantity -= amount;
 
 			Item* newItem = item->clone();
 			newItem->quantity = amount;
-
+			
+			if (item->quantity == amount)
+				this->removeProduct(productSlot);
+			
 			return newItem;
 		} else return NULL;
 	}
