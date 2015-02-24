@@ -15,6 +15,7 @@ class Effects {
 	int uses;
 	bool consumable = false;
 
+	Effects();
 	Effects(int uses, bool consumable);
 
 	bool isConsumable();

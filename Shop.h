@@ -7,7 +7,7 @@
 class Shop {
 
 	public:
-	int const SHOP__MAX_PRODUCTS = 64;
+	int const SHOP__MAX_PRODUCTS = 32;
 	Inventory* inventory = new Inventory(SHOP__MAX_PRODUCTS);
 	//double 
 

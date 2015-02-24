@@ -6,6 +6,7 @@
 #include <string>
 #include "Game.h"
 #include "Convert.h"
+#include "ResourceLoader.h"
 
 using namespace std;
 
@@ -13,31 +14,24 @@ int main() {
 
 	Actor pl = Actor("Ucchi");
 	Shop merchant = Shop();
-
-	// new Item(ID <- make a Item.newID() function, or ItemLoader.newID()
-	Item* products[] = {
-		new Item(1, "sword", false, 1, 100),
-		new Item(2, "potion", true, 8, 1, true)
-	};
-
-	for (Item* item : products)
-		merchant.addProduct(item);
-
 	//----------------//
-	int desiredAmountOfPotions = 8;
 
-	if (merchant.getProduct(1)->quantity > desiredAmountOfPotions)
-		pl.inventory->insertIntoNext(merchant.buyItem(1, desiredAmountOfPotions));
+	Item* sword = new Item(1, "sword", false, 1, 100);
+	sword->effects->strength(18);
 
+	ResourceLoader itemLoader;
+	itemLoader.writeItem(sword);
 
-	Game::Print::inventory(merchant.inventory);
+	Item* swordClone = itemLoader.loadItem(1);
 
-	Game::Print::inventory(pl.inventory);
+	for (int i = 0; i < 6; i++)
+		cout << (sword->effects->stats[i] == swordClone->effects->stats[i]) << endl;
+	
 
 
 	//----------------//
 	cout << "\n\nARpg Terminated" << endl;
-	//system("pause");
+	system("pause");
 	return 0;
 }
 

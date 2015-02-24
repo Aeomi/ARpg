@@ -50,7 +50,7 @@ Item* Shop::buyItem(int productSlot, int amount) {
 			Item* newItem = item->clone();
 			newItem->quantity = amount;
 			
-			if (item->quantity == amount)
+			if (item->quantity == 0)
 				this->removeProduct(productSlot);
 			
 			return newItem;
@@ -58,6 +58,7 @@ Item* Shop::buyItem(int productSlot, int amount) {
 	}
 	
 	Item* newItem = item->clone();
+	return newItem;
 }
 
 Item* Shop::buyItem(int productSlot){
