@@ -10,7 +10,11 @@ Item* ResourceLoader::loadItem(int itemId) {
 
 	// Get info from file
 
-	itemTitle << "resources\\databases\\items\\" << itemId << ".a.item";
+	if (_WIN32) itemTitle << "resources\\databases\\items\\";
+	else itemTitle << "resources/databases/items/";
+
+	itemTitle << itemId << ".a.item";
+
 	std::ifstream itemFile(itemTitle.str());	// Got Item File
 	
 	if (!itemFile.is_open()) return NULL;		// Fuck off if file didn't open; might not exist.
@@ -36,7 +40,7 @@ Item* ResourceLoader::loadItem(int itemId) {
 	uses		= ALib::Convert::toInt(strData[3]);
 	stackable	= !! ALib::Convert::toInt(strData[4]);
 
-	for (int i = 5; i < strData.size(); i++)
+	for (unsigned int i = 5; i < strData.size(); i++)
 		itemStats[i] = ALib::Convert::toInt(strData[i]);
 
 	return new Item(itemId, name, consumable, quantity, uses, stackable);
