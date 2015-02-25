@@ -1,17 +1,13 @@
 #include "ResourceLoader.h"
-#include <iostream> // For Debugging
+#include <iostream>
 
-ResourceLoader::ResourceLoader() {
-
-}
+ResourceLoader::ResourceLoader() {}
 
 Item* ResourceLoader::loadItem(int itemId) {
 	std::stringstream itemTitle;	//name
 
 	// Get info from file
-
-	if (_WIN32) itemTitle << "resources\\databases\\items\\";
-	else itemTitle << "resources/databases/items/";
+	itemTitle << "resources/databases/items/";
 
 	itemTitle << itemId << ".a.item";
 
@@ -24,6 +20,8 @@ Item* ResourceLoader::loadItem(int itemId) {
 		fileDataBuffer << itemFile.rdbuf();
 		fileData = fileDataBuffer.str();
 	}
+
+	
 
 	// Generate Item using info
 	std::string name;
@@ -40,10 +38,18 @@ Item* ResourceLoader::loadItem(int itemId) {
 	uses		= ALib::Convert::toInt(strData[3]);
 	stackable	= !! ALib::Convert::toInt(strData[4]);
 
-	for (unsigned int i = 5; i < strData.size(); i++)
+
+	for (int i = 5; i < 10; i++)		// Stat parts of the saved string (indices[5-10])
 		itemStats[i] = ALib::Convert::toInt(strData[i]);
 
-	return new Item(itemId, name, consumable, quantity, uses, stackable);
+
+	Item* item = new Item(itemId, name, consumable, quantity, uses, stackable);
+
+	item->effects->stats[0] = (int) itemStats[0]; // RANDOM VALUE?! WHY
+
+	std::cout << item->effects->stats[0] << std::endl;
+
+	return item;
 
 }
 

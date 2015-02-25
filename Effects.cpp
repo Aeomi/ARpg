@@ -12,6 +12,13 @@ Effects::Effects(int uses, bool consumable) {
 	else this->consumable = true;*/
 }
 
+void Effects::setStatArray(int statArray[5]) {
+
+	for (int i = 0; i < 5; i++)
+		this->stats[i] = statArray[i];
+
+}
+
 void Effects::level(int value) {
 	this->stats[LEVEL] = value;
 }

@@ -18,13 +18,14 @@ class Effects {
 	Effects();
 	Effects(int uses, bool consumable);
 
+	void setStatArray(int statArray[5]);
+
 	bool isConsumable();
 	void level(int val);
 	void exp(int val);
 	void health(int val);
 	void strength(int val);
 	void defence(int val);
-	
 
 };
 

@@ -24,8 +24,19 @@ int main() {
 
 	Item* swordClone = itemLoader.loadItem(1);
 
-	for (int i = 0; i < 6; i++)
-		cout << (sword->effects->stats[i] == swordClone->effects->stats[i]) << endl;
+	for (int i = 0; i < 6; i++){
+
+		cout << "\nEffect #" << i << " == clone: "
+			<< (sword->effects->stats[i] == swordClone->effects->stats[i]) << endl;
+
+	}
+
+
+	cout << "\n\n";
+	Game::Print::info(sword);
+	cout << "\n\n";
+	Game::Print::info(swordClone);
+
 	
 
 
